@@ -4,14 +4,41 @@ jobs:
       vmImage: "vs2017-win2016"
     strategy:
       matrix:
-        py27:
-          TOXENV: "py27-windows"
+        py27-api_tests:
+          TOXENV: "py27-windows-api_tests"
           python.version: "2.7"
-        py36:
-          TOXENV: "py36-windows"
+        py36-api_tests:
+          TOXENV: "py36-windows-api_tests"
           python.version: "3.6"
-        py37:
-          TOXENV: "py37-windows"
+        py37-api_tests:
+          TOXENV: "py37-windows-api_tests"
+          python.version: "3.7"
+        py27-cli_tests:
+          TOXENV: "py27-windows-cli_tests"
+          python.version: "2.7"
+        py36-cli_tests:
+          TOXENV: "py36-windows-cli_tests"
+          python.version: "3.6"
+        py37-cli_tests:
+          TOXENV: "py37-windows-cli_tests"
+          python.version: "3.7"
+        py27-core_tests:
+          TOXENV: "py27-windows-core_tests"
+          python.version: "2.7"
+        py36-core_tests:
+          TOXENV: "py36-windows-core_tests"
+          python.version: "3.6"
+        py37-core_tests:
+          TOXENV: "py37-windows-core_tests"
+          python.version: "3.7"
+        py27-general_tests:
+          TOXENV: "py27-windows-general_tests"
+          python.version: "2.7"
+        py36-general_tests:
+          TOXENV: "py36-windows-general_tests"
+          python.version: "3.6"
+        py37-general_tests:
+          TOXENV: "py37-windows-general_tests"
           python.version: "3.7"
     variables:
       PYTHONLEGACYWINDOWSSTDIO: "1"
