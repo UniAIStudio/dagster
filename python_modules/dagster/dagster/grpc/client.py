@@ -241,6 +241,7 @@ class DagsterGrpcClient(object):
                     event.serialized_dagster_event_or_ipc_error_message
                 )
         except KeyboardInterrupt as interrupt:
+            print('HERE')
             self.terminate_server_process()
             yield instance.report_engine_event(
                 message='Pipeline execution terminated by interrupt', pipeline_run=pipeline_run,
@@ -248,6 +249,7 @@ class DagsterGrpcClient(object):
             yield instance.report_run_failed(pipeline_run)
             raise interrupt
         except grpc.RpcError as rpc_error:
+            print('THERE')
             if 'Socket closed' in rpc_error.debug_error_string():  # pylint: disable=no-member
                 yield instance.report_engine_event(
                     message='User process: GRPC server for {run_id} terminated unexpectedly'.format(
