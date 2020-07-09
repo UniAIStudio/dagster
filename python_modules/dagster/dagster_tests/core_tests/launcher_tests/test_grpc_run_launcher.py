@@ -104,7 +104,7 @@ def get_full_external_pipeline(repo_yaml, pipeline_name):
     )
 
 
-def poll_for_run(instance, run_id, timeout=5):
+def poll_for_run(instance, run_id, timeout=10):
     total_time = 0
     backoff = 0.01
 
@@ -120,7 +120,7 @@ def poll_for_run(instance, run_id, timeout=5):
                 raise Exception('Timed out')
 
 
-def poll_for_step_start(instance, run_id, timeout=5):
+def poll_for_step_start(instance, run_id, timeout=10):
     total_time = 0
     backoff = 0.01
 

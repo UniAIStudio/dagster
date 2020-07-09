@@ -90,7 +90,7 @@ class EphemeralGrpcRunLauncher(RunLauncher, ConfigurableClass):
         living_process_snapshot = self._living_process_snapshot()
 
         for run_id, process in living_process_snapshot.items():
-            if not process.poll() is None:
+            if not (process.poll() is None):
                 run = self._instance.get_run_by_id(run_id)
                 if not run:  # defensive
                     continue
@@ -183,7 +183,7 @@ class EphemeralGrpcRunLauncher(RunLauncher, ConfigurableClass):
         if not process:
             return False
 
-        if not process.poll() is None:
+        if not (process.poll() is None):
             return False
 
         return True
@@ -196,7 +196,7 @@ class EphemeralGrpcRunLauncher(RunLauncher, ConfigurableClass):
         if not process:
             return False
 
-        if not process.poll() is None:
+        if not (process.poll() is None):
             return False
 
         # Pipeline execution machinery is set up to gracefully
